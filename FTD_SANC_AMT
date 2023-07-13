@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 SANCTION
 
 FTD_SANC_AMT
@@ -150,4 +151,158 @@ MTD_SOU_NUM
         'Business'[Date] <= Business[FTD] &&
         'Business'[Status] = "SOURCE"
     )
+=======
+SANCTION
+
+FTD_SANC_AMT
+
+CALCULATE(
+    SUM('Business'[Amount]),
+    FILTER(
+        'Business',
+        'Business'[Date] = 'Business'[FTD] &&
+        'Business'[Status] = "SANCTION"
+        )
+)
+
+FTD_SANC_NUM
+
+=CALCULATE(
+    SUM('Business'[No]),
+    FILTER(
+        'Business',
+        'Business'[Date]='Business'[FTD] &&
+        'Business'[Status] = "SANCTION"
+        )
+)
+
+MTD_SANC_AMT
+
+=CALCULATE(
+    SUM('Business'[Amount]),
+    FILTER(
+        'Business',
+        YEAR('Business'[Date]) = YEAR(Business[FTD]) &&
+        MONTH('Business'[Date]) = MONTH(Business[FTD]) &&
+        'Business'[Date] <= Business[FTD] &&
+        'Business'[Status] = "SANCTION"
+    )
+)
+
+MTD_SANC_NUM
+
+=CALCULATE(
+    SUM('Business'[No]),
+    FILTER(
+        'Business',
+        YEAR('Business'[Date]) = YEAR(Business[FTD]) &&
+        MONTH('Business'[Date]) = MONTH(Business[FTD]) &&
+        'Business'[Date] <= Business[FTD] &&
+        'Business'[Status] = "SANCTION"
+    )
+)
+
+
+
+DISBURSEMENT
+
+FTD_DISB_AMT
+
+CALCULATE(
+    SUM('Business'[Amount]),
+    FILTER(
+        'Business',
+        'Business'[Date] = 'Business'[FTD] &&
+        'Business'[Status] = "DISBURSE"
+        )
+)
+
+FTD_DISB_NUM
+
+=CALCULATE(
+    SUM('Business'[No]),
+    FILTER(
+        'Business',
+        'Business'[Date]='Business'[FTD] &&
+        'Business'[Status] = "DISBURSE"
+        )
+)
+
+MTD_DISB_AMT
+
+=CALCULATE(
+    SUM('Business'[Amount]),
+    FILTER(
+        'Business',
+        YEAR('Business'[Date]) = YEAR(Business[FTD]) &&
+        MONTH('Business'[Date]) = MONTH(Business[FTD]) &&
+        'Business'[Date] <= Business[FTD] &&
+        'Business'[Status] = "DISBURSE"
+    )
+)
+
+MTD_DISB_NUM
+
+=CALCULATE(
+    SUM('Business'[No]),
+    FILTER(
+        'Business',
+        YEAR('Business'[Date]) = YEAR(Business[FTD]) &&
+        MONTH('Business'[Date]) = MONTH(Business[FTD]) &&
+        'Business'[Date] <= Business[FTD] &&
+        'Business'[Status] = "DISBURSE"
+    )
+)
+
+
+SOURCING
+
+
+FTD_SOU_AMT
+
+CALCULATE(
+    SUM('Business'[Amount]),
+    FILTER(
+        'Business',
+        'Business'[Date] = 'Business'[FTD] &&
+        'Business'[Status] = "SOURCE"
+        )
+)
+
+FTD_SOU_NUM
+
+=CALCULATE(
+    SUM('Business'[No]),
+    FILTER(
+        'Business',
+        'Business'[Date]='Business'[FTD] &&
+        'Business'[Status] = "SOURCE"
+        )
+)
+
+MTD_SOU_AMT
+
+=CALCULATE(
+    SUM('Business'[Amount]),
+    FILTER(
+        'Business',
+        YEAR('Business'[Date]) = YEAR(Business[FTD]) &&
+        MONTH('Business'[Date]) = MONTH(Business[FTD]) &&
+        'Business'[Date] <= Business[FTD] &&
+        'Business'[Status] = "SOURCE"
+    )
+)
+
+MTD_SOU_NUM
+
+=CALCULATE(
+    SUM('Business'[No]),
+    FILTER(
+        'Business',
+        YEAR('Business'[Date]) = YEAR(Business[FTD]) &&
+        MONTH('Business'[Date]) = MONTH(Business[FTD]) &&
+        'Business'[Date] <= Business[FTD] &&
+        'Business'[Status] = "SOURCE"
+    )
+>>>>>>> d02ab45a745484133f290c108628b70e87c04709
 )
